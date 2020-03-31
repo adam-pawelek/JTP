@@ -1,0 +1,13 @@
+Zadanie 2 Debbuger
+
+Przed wykonaniem i ma wartosc 2
+changei daje wynik 5;
+
+Wartosc i po wynosi 2.
+
+(1) [(args, adres args), (i,2)] main
+
+(2) [(args, adres args), (i,2), (return_i, 5)]main
+
+(a)[(i,2),(a,adres a), (a[0], 2)] changei,[(args, adres args), (i, 2), (return_i, 0)]main
+(b)[(a, adres a), ((a[0], 2), (i,3)]changei, [(args, adres args), (i,2), return_i, 0)]main
