@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class Factorial {
 
     public static int factorial(int x) throws Exception{
@@ -26,22 +28,27 @@ public class Factorial {
 
 
     public static void main(String[] args) {
+        int tab[] = {-3,-1,0,1,2,4,5};
+
         //podpunkt1
-        try {
-            System.out.println(factorial(-1));
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        for (int i = 0; i < 7; i++) {
+            System.out.println("Nowa linia "  + tab[i]);
 
-        //podpunkt2
-        try {
-            System.out.println(factorial1(-1));
-        }
-        catch (MyException e){
-            System.out.println(e.getMessage());
-        }
+            try {
+                System.out.println(factorial(tab[i]));
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
 
+            //podpunkt2
+            try {
+                System.out.println(factorial1(tab[i]));
+            } catch (MyException e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
 
 
 
