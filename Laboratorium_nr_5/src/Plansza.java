@@ -10,7 +10,7 @@ public class Plansza extends JPanel implements MouseListener {
     int czy = 0;
     int x,y;
     ArrayList <Kafelki>  tablica = new ArrayList<>();
-    String ktore_pole = new String("sadfsad");
+    String ktore_pole = new String("Numer pola:");
 
     public Plansza(){
         addMouseListener(this);
@@ -26,7 +26,7 @@ public class Plansza extends JPanel implements MouseListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (czy == 1) {
-            this.setBackground(Color.BLUE);
+         //   this.setBackground(Color.BLUE);
         }
 
         //tworzenie tablicy
@@ -35,7 +35,7 @@ public class Plansza extends JPanel implements MouseListener {
         for(int i = 0; i < 8; i++){
             for(int j = 0; j < 8; j++){
                 pom = new Kafelki(this.getHeight()/ 9 * j,this.getHeight() / 9 * i,this.getHeight()/ 9 * (j + 1),this.getHeight() / 9 * (i + 1),
-                        j, (char) (97 + i));
+                        8-i, (char) (97 + j));
                 tablica.add(pom);
 
             }
@@ -70,15 +70,16 @@ public class Plansza extends JPanel implements MouseListener {
             g.drawString(wloz , this.getHeight() / 9 * i, this.getHeight() * 9 / 10);
         }
 
-        for (int i = 8; i > 0; i++){
+        for (int i = 8; i > 0; i--){
             g.setColor(Color.black);
-            char dochar = (char)(56 - i);
+            char dochar = (char)(57 - i);
             String wloz = new String();
             wloz += dochar;
             g.drawString(wloz , this.getHeight() * 9 / 10,this.getHeight() / 9 * i);
         }
 
-
+        g.setColor(Color.black);
+        g.drawString(ktore_pole , 0,this.getHeight()* 15/16);
 
 
 

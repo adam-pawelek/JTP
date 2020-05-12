@@ -16,6 +16,6 @@ public class Kafelki {
     @Override
     public String toString(){
 
-        return (numer + "" + slowo);
+        return ("Numer pola  " + numer + "" + slowo);
     }
 }
