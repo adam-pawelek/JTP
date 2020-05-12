@@ -1,4 +1,6 @@
+import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Polygon implements  Figure, Comparable<Polygon> {
@@ -107,7 +109,7 @@ public class Polygon implements  Figure, Comparable<Polygon> {
             return -1;
         }
         else{
-            this.sortuj();;
+            this.sortuj();
             polygon.sortuj();
             for(int i = 0; i < this.punkty.size(); i++){
                 Point point = this.punkty.get(i);
@@ -130,6 +132,73 @@ public class Polygon implements  Figure, Comparable<Polygon> {
         }
         return 0;
     }
+
+    //zadanie 4
+    //zakladam ze wielokat wypukly i wierzcholki sa podawane po koleji
+
+    public  double obowd() throws Exception{
+        this.sort_punkty();
+        if (punkty.size() < 3){
+            throw new Exception("za mala liczba punktow");
+        }
+        double sum = 0;
+        for(int i = 0; i < punkty.size(); i++){
+            sum += punkty.get(i).odl(punkty.get((i+1)%punkty.size()));
+            System.out.println(sum);
+        }
+
+        return  sum;
+    }
+
+    public  double pole() throws Exception{
+        this.sort_punkty();
+        if (punkty.size() < 3){
+            throw new Exception("za mala liczba punktow");
+        }
+        double sum = 0;
+        double wyn1;
+        double wyn2;
+        for (int i = 0; i < punkty.size(); i++){
+            wyn1 = punkty.get((i + 1) % punkty.size()).x + punkty.get(i).x;
+            wyn2 = punkty.get((i+ 1)% punkty.size()).y - punkty.get(i).y;
+            sum+= wyn1 * wyn2;
+        }
+        sum /= 2;
+        return Math.abs(sum);
+    }
+
+
+    public Point znajdz_srodek(){
+
+        int x = 0;
+        int y = 0;
+        for (Point p : punkty) {
+            x += p.x;
+            y += p.y;
+        }
+        Point center = new Point(0, 0);
+        center.x = x / punkty.size();
+        center.y = y / punkty.size();
+        return center;
+    }
+
+    public ArrayList<Point> sort_punkty() {
+        // get centroid
+        Point center = znajdz_srodek();
+        Collections.sort(punkty, (a, b) -> {
+            double a1 = (Math.toDegrees(Math.atan2(a.x - center.x, a.y - center.y)) + 360) % 360;
+            double a2 = (Math.toDegrees(Math.atan2(b.x - center.x, b.y - center.y)) + 360) % 360;
+            return (int) (a1 - a2);
+        });
+        return punkty;
+    }
+
+
+
+
+
+
+
 }
 
 

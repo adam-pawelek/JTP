@@ -32,10 +32,11 @@ public class Line implements Figure {
 
     public String toString(){
         String wynik = "";
-        wynik += "Pierwszy Punkt";
+        wynik += "Pierwszy Punkt \n";
         wynik += p1.toString();
-        wynik += "Drugi Punkt";
+        wynik += " Drugi Punkt ";
         wynik += p2.toString();
+        wynik+= "\n";
         return wynik;
     }
 
@@ -49,6 +50,13 @@ public class Line implements Figure {
     public Line(Point p1, Point p2){
         this.p1 = p1;
         this.p2 = p2;
+    }
+
+
+    public static void main(String[] args) {
+        double x1 = 1, y1 = 2, x2 = 3, y2 = 5;
+        Line l = new Line(x1,y1,x2,y2);
+        l.move(2,1);
     }
 
 

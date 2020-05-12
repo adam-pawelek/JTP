@@ -41,4 +41,11 @@ public class Point implements Figure {
         return ("x: " + this.x +" y: "+ this.y);
     }
 
+
+    public double odl (Point p) {
+        double x = this.x - p.x;
+        double y = this.y - p.y;
+        return Math.sqrt(x*x + y*y);
+    }
+
 }

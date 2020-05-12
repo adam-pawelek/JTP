@@ -1,0 +1,3 @@
+W Debugerze intelij sterta jest zaznaczona kolorem żółtym
+a stos kolorem niebieskim.
+
