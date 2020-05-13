@@ -32,6 +32,16 @@ public class Kwadrat extends JPanel {
 
 
 
+        g.setColor(Color.WHITE);
+        g.fillRect(this.getWidth()*3/4,0,this.getWidth(),this.getHeight() / 8);
+
+        g.setColor(Color.RED);
+        g.fillRect(this.getWidth()*3/4,this.getHeight() / 8,this.getWidth(),this.getHeight() /8);
+
+        g.drawString("Polska",this.getWidth()*3/4,this.getHeight()*2/5);
+
+
+
 
         g.drawString("Polska",this.getHeight()/4,this.getHeight()*3/4);
 
