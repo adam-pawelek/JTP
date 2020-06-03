@@ -29,10 +29,15 @@ public class Main {
         System.out.println("Podaj koniec przedzialu");
         double koniec = scan.nextDouble();
 
-        int przedzialy =  100;
+        int przedzialy =  1000;
+
+
         double przyblizenie = (koniec - poczatek) / przedzialy;
 
+        Obliczenia obliczenia = new Obliczenia();
+        obliczenia.licz_watki(poczatek,koniec,przedzialy,suma);
 
+/*
         Thread t1 = new Thread(new trapez(poczatek ,poczatek + przyblizenie * (przedzialy / 2) ,przedzialy/2,suma));
         Thread t2 = new Thread(new trapez(poczatek + przyblizenie * (przedzialy / 2)  ,koniec,przedzialy/2,suma));
 
@@ -50,7 +55,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+*/
         System.out.println("wynik "+ suma.get());
 
 

@@ -63,7 +63,7 @@ public class Sumuj {
     public synchronized double licz_wielomian( double x){
         double pomwyn = 0;
         for (int i = tablica.size() - 1; i >= 0; i--){
-            pomwyn += potega(x,i) * tablica.get(i);
+            pomwyn += potega(x,i) * tablica.get( tablica.size() - i - 1);
         }
         return  pomwyn;
     }
